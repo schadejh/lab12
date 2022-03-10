@@ -24,10 +24,14 @@ partitionMore v (t:ts) = filter (\x -> v < x) ts
 
 -- Step 11 above, 12 below
 
-quicksort :: [a] -> [a]
-quicksort (n:ns)
-  | length ns == 1 = ns
-  | otherwise = quicksort (partitionLess n ns) : quicksort (partitionMore n ns)
+longBoi = {1,2,3,4}
+longTwo = {5,6,7}
+
+longest = longBoi : 5
+--quicksort :: [a] -> [a]
+--quicksort (n:ns)
+--  | length ns == 1 = ns
+--  | otherwise = quicksort (partitionLess n ns) : quicksort (partitionMore n ns)
 -- infinite type sadness, but this is the idea
 
 quicksort (x:xs) = (quicksort (partitionLess x xs) : quicksort (partitionMore x xs))
