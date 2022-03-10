@@ -30,7 +30,7 @@ quicksort ns
   | otherwise = quicksort (partitionLess (head ns) ns) : quicksort (partitionMore (head ns) ns)
 -- infinite type sadness, but this is the idea
 
-quicksort xs = (quicksort partitionLess (head xs) xs : quicksort partitionMore (head xs) xs)
+quicksort (x:xs) = (quicksort (partitionLess x xs) : quicksort (partitionMore x xs))
 -- more infinite type sadness?
 
 -- pairToList :: Pair a -> [a]
