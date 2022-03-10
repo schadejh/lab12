@@ -34,7 +34,7 @@ longest = longBoi : 5
 --  | otherwise = quicksort (partitionLess n ns) : quicksort (partitionMore n ns)
 -- infinite type sadness, but this is the idea
 
-quicksort (x:xs) = (quicksort (partitionLess x xs) : quicksort (partitionMore x xs))
+--quicksort (x:xs) = (quicksort (partitionLess x xs) : quicksort (partitionMore x xs))
 -- more infinite type sadness?
 
 -- pairToList :: Pair a -> [a]
