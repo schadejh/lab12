@@ -33,5 +33,5 @@ quicksort ns
 quicksort xs = quicksort partitionLess (head xs) xs : quicksort partitionMore (head xs) xs
 -- more infinite type sadness?
 
-pairToList :: Pair a -> [a]
-pairToList a = [fsts a, snds a]
+-- pairToList :: Pair a -> [a]
+-- pairToList a = [fsts a, snds a]
