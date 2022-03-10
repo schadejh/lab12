@@ -25,7 +25,9 @@ partitionMore v (t:ts) = filter (\x -> v < x) ts
 -- Step 11 above, 12 below
 
 quicksort :: [a] -> [a]
-quicksort ns = quicksort (partitionLess (head ns) ns) : quicksort (partitionMore (head ns) ns)
+quicksort ns
+  | length ns == 1 = ns
+  | otherwise = quicksort (partitionLess (head ns) ns) : quicksort (partitionMore (head ns) ns)
 -- infinite type sadness, but this is the idea
 
 quicksort xs = quicksort lower : quicksort higher
