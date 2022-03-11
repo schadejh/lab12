@@ -36,7 +36,7 @@ partitionMore v ts = filter (\x -> v < x) ts
 quicksort :: Ord a => [a] -> [a]
 quicksort ns
   | length ns == 1 = ns
-  | length ns /= 1 = quicksort (partitionLess head n ns) ++ quicksort (partitionMore head n ns)
+  | length ns /= 1 = quicksort (partitionLess head ns ns) ++ quicksort (partitionMore head ns ns)
   | otherwise = []
 -- infinite type sadness, but this is the idea
 
