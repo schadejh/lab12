@@ -33,7 +33,7 @@ partitionMore v (t:ts) = filter (\x -> v < x) ts
 -- longest :: [Num]
 -- longest = longBoi : 5
 
-quicksort :: [a] -> [a]
+quicksort :: Ord a => [a] -> [a]
 quicksort (n:ns)
   | length ns == 1 = ns
   | otherwise = quicksort (partitionLess n ns) ++ quicksort (partitionMore n ns)
