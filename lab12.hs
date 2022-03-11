@@ -25,9 +25,9 @@ applyToList f (n:ns) = f n : applyToList f ns
 quicksort :: Ord a => [a] -> [a]
 quicksort ns
   | length ns == 1 = ns
-  | length ns > 1 = quicksort (partitionLess (head ns) (tail ns)) ++ [(head ns)] ++ quicksort (partitionMore (head ns) (tail ns))
-    where partitionMore v ts = filter (\x -> x > v) ts
-		  partitionLess v ts = filter (\x -> x <= v) ts
+  | length ns > 1 = quicksort lower ++ [(head ns)] ++ quicksort upper
+    where upper = filter (\x -> x > (head ns)) (tail ns)
+		  lower = filter (\x -> x <= (head ns)) (tail ns)
 
   | otherwise = []
 
