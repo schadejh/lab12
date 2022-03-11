@@ -68,3 +68,5 @@ toBst (x:xs) = Node x (toBst smallers) (toBst biggers)
   where smallers = filter (<= x) xs
         biggers = filter (> x) xs
 
+find :: Int -> Tree -> Bool
+find n i smallers biggers 
