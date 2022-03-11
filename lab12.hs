@@ -57,3 +57,14 @@ mirror m = case m of
   (East i) -> (West i)
   (West i) -> (East i)
 
+data Tree
+  = Empty
+  | Node Int Tree Tree
+  deriving (Show, Eq)
+
+toBst :: [Int] -> Tree
+toBst [] = Empty
+toBst (x:xs) = Node x (toBst smallers) (toBst biggers)
+  where smallers = filter (<= x) xs
+        biggers = filter (> x) xs
+
