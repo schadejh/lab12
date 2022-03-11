@@ -17,10 +17,10 @@ applyToList _ [] = []
 applyToList f (n:ns) = f n : applyToList f ns
 
 partitionLess :: Ord a => a -> [a] -> [a]
-partitionLess v ts = filter (\x -> v >= x) ts
+partitionLess v ts = filter (\x -> x <= v) ts
 
 partitionMore :: Ord a => a -> [a] -> [a]
-partitionMore v ts = filter (\x -> v < x) ts
+partitionMore v ts = filter (\x -> x > v) ts
 
 -- Step 11 above, 12 below
 
@@ -36,7 +36,7 @@ partitionMore v ts = filter (\x -> v < x) ts
 quicksort :: Ord a => [a] -> [a]
 quicksort ns
   | length ns == 1 = ns
-  | length ns > 1 = quicksort (partitionLess (last ns) ns) ++ quicksort (partitionMore (last ns) ns)
+  | length ns > 1 = quicksort (partitionLess (head ns) ns) ++ quicksort (partitionMore (head ns) ns)
   | otherwise = []
 -- infinite type sadness, but this is the idea
 
