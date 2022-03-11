@@ -51,8 +51,8 @@ data Movement
   deriving (Show)
 
 mirror :: Movement -> Movement
-mirror m
-  | m == North = South
-  | m == South = North
-  | m == East = West
-  | m == West = East
+mirror m = case m of
+  | North -> South
+  | South -> North
+  | East -> West
+  | West -> East
