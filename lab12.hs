@@ -36,9 +36,17 @@ type Pair a = (a,a)
 pairToList :: Pair a -> [a]
 pairToList (p,q) = [p,q]
 
+-- no safety for dim mismatch
 pairUp :: Pair [a] -> [Pair a]
 pairUp (ps,qs)
 --  | length ps < 1 = ()
   | length ps ==1 = [(head ps, head qs)]
   | length ps > 1 = [(head ps, head qs)] ++ pairUp (tail ps, tail qs)
+
+data Movement
+  = North Int
+  | South Int
+  | East Int
+  | West Int
+  deriving (Show)
 
