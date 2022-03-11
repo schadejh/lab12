@@ -29,6 +29,10 @@ quicksort ns
   | length ns > 1 = quicksort lower ++ [(head ns)] ++ quicksort upper
       where upper = filter (\x -> x > (head ns)) (tail ns)
             lower = filter (\x -> x <= (head ns)) (tail ns)
+-- I don't need an otherwise clause, but how would I add that?
 
--- pairToList :: Pair a -> [a]
--- pairToList a = [fsts a, snds a]
+pairToList :: Pair a -> [a]
+pairToList (p,q) = [p,q]
+
+-- pairUp :: Pair [a] -> [Pair a]
+-- pairUp [a] =
