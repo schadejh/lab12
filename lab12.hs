@@ -50,3 +50,9 @@ data Movement
   | West Int
   deriving (Show)
 
+mirror :: Movement -> Movement
+mirror m
+  | North = South
+  | South = North
+  | East = West
+  | West = East
