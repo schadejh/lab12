@@ -28,7 +28,7 @@ quicksort ns
   | length ns > 1 = quicksort (partitionLess (head ns) (tail ns)) ++ [(head ns)] ++ quicksort (partitionMore (head ns) (tail ns))
     where partitionMore v ts = filter (\x -> x > v) ts
 		  partitionLess v ts = filter (\x -> x <= v) ts
-	      
+
   | otherwise = []
 
 -- pairToList :: Pair a -> [a]
