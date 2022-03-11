@@ -24,22 +24,22 @@ partitionMore v (t:ts) = filter (\x -> v < x) ts
 
 -- Step 11 above, 12 below
 
-longBoi :: [Num]
-longBoi = [1,2,3,4]
+-- longBoi :: [Num]
+-- longBoi = [1,2,3,4]
+--
+-- longTwo :: [Num]
+-- longTwo = [5,6,7]
+--
+-- longest :: [Num]
+-- longest = longBoi : 5
 
-longTwo :: [Num]
-longTwo = [5,6,7]
-
-longest :: [Num]
-longest = longBoi : 5
-
---quicksort :: [a] -> [a]
---quicksort (n:ns)
---  | length ns == 1 = ns
---  | otherwise = quicksort (partitionLess n ns) : quicksort (partitionMore n ns)
+quicksort :: [a] -> [a]
+quicksort (n:ns)
+  | length ns == 1 = ns
+  | otherwise = quicksort (partitionLess n ns) ++ quicksort (partitionMore n ns)
 -- infinite type sadness, but this is the idea
 
---quicksort (x:xs) = (quicksort (partitionLess x xs) : quicksort (partitionMore x xs))
+-- quicksort (x:xs) = (quicksort (partitionLess x xs) ++ quicksort (partitionMore x xs))
 -- more infinite type sadness?
 
 -- pairToList :: Pair a -> [a]
