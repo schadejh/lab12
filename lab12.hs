@@ -16,32 +16,17 @@ applyToList :: (a -> a) -> [a] -> [a]
 applyToList _ [] = []
 applyToList f (n:ns) = f n : applyToList f ns
 
-partitionLess :: Ord a => a -> [a] -> [a]
+lower :: Ord a => a -> [a] -> [a]
 partitionLess v ts = filter (\x -> x <= v) ts
 
-partitionMore :: Ord a => a -> [a] -> [a]
+upper :: Ord a => a -> [a] -> [a]
 partitionMore v ts = filter (\x -> x > v) ts
-
--- Step 11 above, 12 below
-
--- longBoi :: [Num]
--- longBoi = [1,2,3,4]
---
--- longTwo :: [Num]
--- longTwo = [5,6,7]
---
--- longest :: [Num]
--- longest = longBoi : 5
 
 quicksort :: Ord a => [a] -> [a]
 quicksort ns
   | length ns == 1 = ns
-  | length ns > 1 = quicksort (partitionLess (head ns) (tail ns)) ++ [(head ns)] ++ quicksort (partitionMore (head ns) (tail ns))
+  | length ns > 1 = quicksort (lower (head ns) (tail ns)) ++ [(head ns)] ++ quicksort (upper (head ns) (tail ns))
   | otherwise = []
--- infinite type sadness, but this is the idea
-
--- quicksort (x:xs) = (quicksort (partitionLess x xs) ++ quicksort (partitionMore x xs))
--- more infinite type sadness?
 
 -- pairToList :: Pair a -> [a]
 -- pairToList a = [fsts a, snds a]
