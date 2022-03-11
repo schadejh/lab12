@@ -17,10 +17,10 @@ applyToList _ [] = []
 applyToList f (n:ns) = f n : applyToList f ns
 
 lower :: Ord a => a -> [a] -> [a]
-partitionLess v ts = filter (\x -> x <= v) ts
+lower v ts = filter (\x -> x <= v) ts
 
 upper :: Ord a => a -> [a] -> [a]
-partitionMore v ts = filter (\x -> x > v) ts
+upper v ts = filter (\x -> x > v) ts
 
 quicksort :: Ord a => [a] -> [a]
 quicksort ns
