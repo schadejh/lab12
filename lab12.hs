@@ -52,8 +52,8 @@ data Movement
 
 mirror :: (Movement, Int) -> (Movement, Int)
 mirror (m,i) = case m of
-  | North -> (South, i)
-  | South -> (North, i)
-  | East -> (West, i)
-  | West -> (East, i)
+  North -> (South, i)
+  South -> (North, i)
+  East -> (West, i)
+  West -> (East, i)
 
