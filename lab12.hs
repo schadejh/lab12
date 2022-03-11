@@ -28,7 +28,7 @@ quicksort ns
   | length ns > 1 = quicksort lower ++ [(head ns)] ++ quicksort upper
       where upper = filter (\x -> x > (head ns)) (tail ns)
             lower = filter (\x -> x <= (head ns)) (tail ns)
-  | otherwise = []
+--  | otherwise = []
 
 -- pairToList :: Pair a -> [a]
 -- pairToList a = [fsts a, snds a]
