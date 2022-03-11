@@ -17,7 +17,7 @@ applyToList _ [] = []
 applyToList f (n:ns) = f n : applyToList f ns
 
 partitionLess :: Ord a => a -> [a] -> [a]
-partitionLess v (t:ts) = filter (\x -> v >= x) ts
+partitionLess v (t:ts) = filter (\x -> v >= x) t : ts
 
 partitionMore :: Ord a => a -> [a] -> [a]
 partitionMore v (t:ts) = filter (\x -> v < x) ts
