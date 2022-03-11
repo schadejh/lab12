@@ -37,7 +37,7 @@ quicksort :: Ord a => [a] -> [a]
 quicksort (n:ns)
   | length ns == 1 = ns
   | length ns /= 1 = quicksort (partitionLess n ns) ++ quicksort (partitionMore n ns)
-  | otherwise = [(-1)]
+  | otherwise = []
 -- infinite type sadness, but this is the idea
 
 -- quicksort (x:xs) = (quicksort (partitionLess x xs) ++ quicksort (partitionMore x xs))
