@@ -50,8 +50,8 @@ data Movement
   | West Int
   deriving (Show)
 
-mirror :: (Movement) -> (Movement)
-mirror (m,i) = case m of
+mirror :: (Movement, Int) -> (Movement)
+mirror m = case m of
   (North i) -> (South i)
   (South i) -> (North i)
   (East i) -> (West i)
