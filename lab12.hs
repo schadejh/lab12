@@ -31,6 +31,8 @@ quicksort ns
             lower = filter (\x -> x <= (head ns)) (tail ns)
 -- I don't need an otherwise clause, but how would I add that?
 
+type Pair a = (a,a)
+
 pairToList :: Pair a -> [a]
 pairToList (p,q) = [p,q]
 
