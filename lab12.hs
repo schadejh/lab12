@@ -34,9 +34,9 @@ partitionMore v ts = filter (\x -> x > v) ts
 -- longest = longBoi : 5
 
 quicksort :: Ord a => [a] -> [a]
-quicksort (n:ns)
+quicksort ns
   | length ns == 1 = ns
-  | length ns > 1 = quicksort (partitionLess n (tail ns)) ++ [n] ++ quicksort (partitionMore n (tail ns))
+  | length ns > 1 = quicksort (partitionLess (head ns) (tail ns)) ++ [(head ns)] ++ quicksort (partitionMore (head ns) (tail ns))
   | otherwise = []
 -- infinite type sadness, but this is the idea
 
