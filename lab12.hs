@@ -40,4 +40,4 @@ pairUp :: Pair [a] -> [Pair a]
 pairUp [(ps,qs)]
   | length ps < 1 = ()
   | length ps ==1 = (head ps, head qs)
-  | length ps > 1 = (head ps, head qs) ++ (tail ps, tail qs)
+  | length ps > 1 = (head ps, head qs) ++ pairUp (tail ps, tail qs)
