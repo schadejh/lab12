@@ -24,10 +24,15 @@ partitionMore v (t:ts) = filter (\x -> v < x) ts
 
 -- Step 11 above, 12 below
 
+longBoi :: [Num]
 longBoi = [1,2,3,4]
+
+longTwo :: [Num]
 longTwo = [5,6,7]
 
+longest :: [Num]
 longest = longBoi : 5
+
 --quicksort :: [a] -> [a]
 --quicksort (n:ns)
 --  | length ns == 1 = ns
