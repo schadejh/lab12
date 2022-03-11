@@ -20,7 +20,7 @@ partitionLess :: Ord a => a -> [a] -> [a]
 partitionLess v ts = filter (\x -> v >= x) ts
 
 partitionMore :: Ord a => a -> [a] -> [a]
-partitionMore v (t:ts) = filter (\x -> v < x) ts
+partitionMore v ts = filter (\x -> v < x) ts
 
 -- Step 11 above, 12 below
 
