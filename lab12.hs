@@ -16,16 +16,19 @@ applyToList :: (a -> a) -> [a] -> [a]
 applyToList _ [] = []
 applyToList f (n:ns) = f n : applyToList f ns
 
-lower :: Ord a => a -> [a] -> [a]
-lower v ts = filter (\x -> x <= v) ts
+partitionLess :: Ord a => a -> [a] -> [a]
+partitionLess v ts = filter (\x -> x <= v) ts
 
-upper :: Ord a => a -> [a] -> [a]
-upper v ts = filter (\x -> x > v) ts
+partitionMore :: Ord a => a -> [a] -> [a]
+partitionMore v ts = filter (\x -> x > v) ts
 
 quicksort :: Ord a => [a] -> [a]
 quicksort ns
   | length ns == 1 = ns
-  | length ns > 1 = quicksort (lower (head ns) (tail ns)) ++ [(head ns)] ++ quicksort (upper (head ns) (tail ns))
+  | length ns > 1 = quicksort (partitionLess (head ns) (tail ns)) ++ [(head ns)] ++ quicksort (partitionMore (head ns) (tail ns))
+    where partitionMore v ts = filter (\x -> x > v) ts
+		  partitionLess v ts = filter (\x -> x <= v) ts
+	      
   | otherwise = []
 
 -- pairToList :: Pair a -> [a]
